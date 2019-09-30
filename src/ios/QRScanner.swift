@@ -468,7 +468,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
 
     @objc func openSettings(_ command: CDVInvokedUrlCommand) {
         if #available(iOS 10.0, *) {
-            #if swift(>=5.0)
+            #if swift(>=4.2)
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
             #elseif swift(>=4.0)
             guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else  { return }
@@ -487,7 +487,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
         } else {
             // pre iOS 10.0
             if #available(iOS 8.0, *) {
-                #if swift(>=5.0)
+                #if swift(>=4.2)
                 UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
                 #else
                 UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
